@@ -192,28 +192,96 @@
       document.getElementById("typewriter-text").textContent = letter;
       if(letter.length === current.length){ count++; index=0; setTimeout(type,1500);} else { setTimeout(type,200);}  
     }());
+  </script>
+  <script>
     const nav = document.querySelector("nav");
-
-    // Wrap existing links inside a container for toggling
-    const links = Array.from(nav.querySelectorAll("a"));
-    const linksWrapper = document.createElement("div");
-    linksWrapper.className = "nav-links";
-    links.forEach(link => linksWrapper.appendChild(link));
-    nav.appendChild(linksWrapper);
   
-    // Create hamburger
+    // === Wrap nav links ===
+    const allLinks = [...nav.querySelectorAll("a")];
+    const wrapper = document.createElement("div");
+    wrapper.className = "nav-links";
+    allLinks.forEach(link => wrapper.appendChild(link.cloneNode(true)));
+    allLinks.forEach(link => link.remove());
+    nav.appendChild(wrapper);
+  
+    // === Hamburger Button ===
     const hamburger = document.createElement("div");
     hamburger.className = "hamburger";
     for (let i = 0; i < 3; i++) {
-      const span = document.createElement("span");
-      hamburger.appendChild(span);
+      const bar = document.createElement("span");
+      hamburger.appendChild(bar);
     }
-    nav.insertBefore(hamburger, linksWrapper);
+    nav.insertBefore(hamburger, wrapper);
   
-    // Toggle menu
+    // === Toggle Navbar ===
     hamburger.addEventListener("click", () => {
       nav.classList.toggle("open");
     });
+  
+    // === Inject CSS ===
+    const css = `
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+      }
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: var(--dark);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+  
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+  
+      @media (max-width: 768px) {
+        .hamburger { display: flex; }
+  
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: rgba(255,255,255,0.95);
+          backdrop-filter: blur(10px);
+          padding: 1rem;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          z-index: 9;
+        }
+  
+        nav.open .nav-links {
+          display: flex;
+        }
+  
+        nav {
+          justify-content: space-between !important;
+        }
+  
+        nav.open .hamburger span:nth-child(1) {
+          transform: rotate(45deg) translateY(7px);
+        }
+  
+        nav.open .hamburger span:nth-child(2) {
+          opacity: 0;
+        }
+  
+        nav.open .hamburger span:nth-child(3) {
+          transform: rotate(-45deg) translateY(-7px);
+        }
+      }
+    `;
+    const style = document.createElement("style");
+    style.textContent = css;
+    document.head.appendChild(style);
   </script>
 </body>
 </html>
