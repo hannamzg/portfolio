@@ -33,6 +33,7 @@
     .about p { font-size:1rem; line-height:1.6; max-width:800px; margin:0 auto; }
     .skills, .languages { display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:center; margin-top:1rem; }
     .skill, .lang { background:#fff; padding:.5rem 1rem; border-radius:1rem; box-shadow:0 2px 4px rgba(0,0,0,0.1); font-size:.9rem; }
+    .projects-container {display:flex;}
     .project-feature { background:#fff; border-radius:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:2rem; transition:transform .3s, box-shadow .3s; }
     .project-feature:hover { transform:translateY(-8px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
     .project-feature h3 { font-size:1.75rem; margin-bottom:1rem; color:var(--accent); }
@@ -103,31 +104,34 @@
   </section>
   <section id="projects">
     <h2>Featured Projects</h2>
-    <div class="project-feature">
-      <h3>foundLy - Find What You Lost</h3>
-      <p>Connect with people who found your belongings through an intuitive platform. Deployed on Vercel using Next.js and Firebase.</p>
-      <ul>
-        <li>Easy & Intuitive Interface</li>
-        <li>Quick Search with Advanced Matching</li>
-        <li>Secure & Private Data Handling</li>
-      </ul>
-      <a href="https://foundly-three.vercel.app/" target="_blank">View Project</a>
+    <div class="projects-container">
+      <div class="project-feature">
+        <h3>foundLy - Find What You Lost</h3>
+        <p>Connect with people who found your belongings through an intuitive platform. Deployed on Vercel using Next.js and Firebase.</p>
+        <ul>
+          <li>Easy & Intuitive Interface</li>
+          <li>Quick Search with Advanced Matching</li>
+          <li>Secure & Private Data Handling</li>
+        </ul>
+        <a href="https://foundly-three.vercel.app/" target="_blank">View Project</a>
+      </div>
+      <div class="project-feature">
+        <h3>Tic Tac Tix</h3>
+        <p>Mobile app build with flutter and dart TicTactix takes the classic Tic Tac Toe game to the next level with exciting new features and a unique twist! In this game, two players take turns marking spaces on a 3x3 grid, aiming to get three marks in a row, column, or diagonal. However, there’s much more than meets the eye: Choose Your Mark Size: Add a strategic layer by selecting from three different mark sizes—Small, Medium, and Big. Adjust your strategy to outsmart your opponent! Play Against AI: Challenge the smart AI that randomly selects its moves, offering a fun and dynamic challenge whether you're playing solo or with friends. Customizable Gameplay: The twist? You can change the size of your marks during the game, making it even more exciting and unpredictable! Whether you're facing off against a friend or testing your skills against the AI, TicTactix offers a fresh and strategic take on the classic Tic Tac Toe game, keeping each match fun and engaging!</p>
+        <a href="https://play.google.com/store/apps/details?id=com.hanna.TicTactix" target="_blank">View on Google Play</a>
+      </div>
+      <div class="project-feature">
+        <h3>Abusnan Church</h3>
+        <p>Official website for the church community. Built with PHP, MySQL, and custom CMS.</p>
+        <a href="https://abusnanchurch.com" target="_blank">Visit Website</a>
+      </div>
+      <div class="project-feature">
+        <h3>Mzeget Site</h3>
+        <p>Community website reusing same backend as Abusnan Church, optimized for performance.</p>
+        <a href="https://mzeget.site" target="_blank">Visit Website</a>
+      </div>
     </div>
-    <div class="project-feature">
-      <h3>Tic Tac Tix</h3>
-      <p>Mobile game with modern UI, published on Google Play. Built using Unity and C#.</p>
-      <a href="https://play.google.com/store/apps/details?id=com.hanna.TicTactix" target="_blank">View on Google Play</a>
-    </div>
-    <div class="project-feature">
-      <h3>Abusnan Church</h3>
-      <p>Official website for the church community. Built with PHP, MySQL, and custom CMS.</p>
-      <a href="https://abusnanchurch.com" target="_blank">Visit Website</a>
-    </div>
-    <div class="project-feature">
-      <h3>Mzeget Site</h3>
-      <p>Community website reusing same backend as Abusnan Church, optimized for performance.</p>
-      <a href="https://mzeget.site" target="_blank">Visit Website</a>
-    </div>
+
   </section>
   <section id="experience">
     <h2>Work Experience</h2>
